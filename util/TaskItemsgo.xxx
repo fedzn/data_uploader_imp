@@ -1,0 +1,253 @@
+package Config
+
+// {
+// 	"trip_name": "kk",
+// 	"trip_date": 1594166400000,
+// 	"vehicle": "vv7",
+// 	"city": "kk",
+// 	"algo_version": "v0.1.3",
+// 	"device_code": 20,
+// 	"adms": {
+// 		"id": "toyota_beijing_84_2.0.3",
+// 		"coordinate_system": "gcj02",
+// 		"bias": {
+// 			"x": 0,
+// 			"y": 0,
+// 			"z": 0
+// 		},
+// 		"llh": {
+// 			"x": 0,
+// 			"y": 0,
+// 			"z": 0
+// 		},
+// 		"enable_bias": false
+// 	}
+// }
+
+// type Vector3D struct {
+// 	X float64 `json:"x"`
+// 	Y float64 `json:"y"`
+// 	Z float64 `json:"z"`
+// }
+
+// type AdmsInfo struct {
+// 	Id                string   `json:"id"`
+// 	Coordinate_system string   `json:"coordinate_system"`
+// 	Enable_bias       bool     `json:"enable_bias"`
+// 	Bias              Vector3D `json:"bias"`
+// 	Llh               Vector3D `json:"llh"`
+// }
+
+// type TaskInfo struct {
+// 	Trip_name    string   `json:"trip_name" `
+// 	Trip_date    string   `json:"trip_date" `
+// 	Vehicle      string   `json:"vehicle"`
+// 	City         string   `json:"city"`
+// 	Algo_version string   `json:"algo_version"`
+// 	Device_code  int      `json:"device_code"`
+// 	Platform     string   `json:"platform"`
+// 	AdmsInfo     AdmsInfo `json:"AdmsInfo"`
+// }
+
+// type TaskItem struct {
+// 	Id string `json:"Id" `
+// 	// Is_success        bool     `json:"Is_success" `
+// 	File_key string `json:"File_key" `
+// 	// File_name         string   `json:"File_name" `
+// 	Alias_name        string   `json:"Alias_name" `
+// 	Sub_files         []string `json:"Sub_files" `
+// 	Compress          bool     `json:"Compress" `
+// 	Compress_interval uint     `json:"compress_interval" `
+// }
+
+// // // Is_success:        false,
+// // File_name:         filename,
+// func NewTaskItem(key string, alias string, subfiles []string, zip bool, zip_interval uint) *TaskItem {
+
+// 	return &TaskItem{
+// 		Id:                uuid.NewV4().String(),
+// 		File_key:          key,
+// 		Compress:          zip,
+// 		Sub_files:         subfiles,
+// 		Alias_name:        alias,
+// 		Compress_interval: zip_interval,
+// 	}
+// }
+
+// type SubTripInfo struct {
+// 	Description     string `json:"description" `
+// 	Start_timestamp string `json:"start_timestamp" `
+// 	End_timestamp   string `json:"end_timestamp" `
+// 	Scene           string `json:"scene" `
+// 	Memo            string `json:"memo" `
+// }
+
+// type Algorithm struct {
+// 	Adms_config       string `json:"adms_config" `
+// 	Offline_version   string `json:"offline_version" `
+// 	Online_version    string `json:"online_version" `
+// 	Coordinate_system string `json:"coordinate_system" `
+// 	Name              string `json:"name" `
+// }
+
+// type SensorData struct {
+// 	Path string `json:"path" `
+// 	// Has_header string `json:"has_header" `
+// 	// Delimiter  string `json:"delimiter" `
+// 	Alias string `json:"alias" `
+// 	// Header     string `json:"header" `
+// }
+
+// type SensorDatas struct {
+// 	Compress          string       `json:"compress" `
+// 	Compress_interval string       `json:"compress_interval" `
+// 	Sensors           []SensorData `json:"sensors" `
+// }
+
+// type ImageInfo struct {
+// 	Dir               string `json:"dir" `
+// 	Data_alias        string `json:"data_alias" `
+// 	Compress          string `json:"compress" `
+// 	Compress_interval string `json:"compress_interval" `
+// }
+
+// type TripInfo struct {
+// 	Session_uuid string `json:"session_uuid" `
+// 	Data_alias   string `json:"data_alias" `
+// 	Trip_uuid    string `json:"trip_uuid"`
+// 	Trip_date    string `json:"trip_date"`
+// 	Trip_city    string `json:"trip_city"`
+// 	Trip_name    string `json:"trip_name"`
+// 	Trip_vehicle string `json:"trip_vehicle"`
+
+// 	Trip_mileage          string `json:"trip_mileage(m)"`
+// 	Trip_start_timestamp  string `json:"trip_start_timestamp"`
+// 	Trip_finish_timestamp string `json:"trip_finish_timestamp"`
+
+// 	Sub_trips []SubTripInfo `json:"sub_trips"`
+
+// 	Sensor_datas SensorDatas `json:"sensor_datas"`
+
+// 	Trip_image ImageInfo `json:"trip_image"`
+// }
+
+// type ConfigSensorInfo struct {
+// 	Compress          bool   `json:"compress" `
+// 	Compress_interval uint   `json:"compress_interval" `
+// 	Path              string `json:"path" `
+// 	Protocol          string `json:"protocol" `
+// 	Delimiter         string `json:"delimiter" `
+// 	Header            string `json:"header" `
+// }
+
+// type ConfigSensorData struct {
+// 	HomeDir string                      `json:"HomeDir" `
+// 	Sensors map[string]ConfigSensorInfo `json:"Sensors" `
+// }
+
+// type ConfigSensorDatas struct {
+// 	SensorData ConfigSensorData `json:"SensorData" `
+// 	ImageData  ConfigSensorData `json:"ImageData" `
+// }
+
+// func NewConfigSensorDatas(json_file string) (*ConfigSensorDatas, error) {
+// 	content, err := ioutil.ReadFile(json_file)
+// 	if err != nil {
+// 		log.Printf("ioutil.ReadFile [%s] Error : [%v]", json_file, err)
+// 		return nil, err
+// 	}
+
+// 	sensors := ConfigSensorDatas{}
+
+// 	if err := json.Unmarshal(content, &sensors); err != nil {
+// 		log.Printf("json.Unmarshal [%s] Error : [%v]", content, err)
+// 		return nil, err
+// 	}
+
+// 	log.Println(sensors.SensorData)
+// 	log.Println(sensors.ImageData)
+
+// 	return &sensors, nil
+// }
+
+// // 创建上传文件列表
+// func Create_upload_send_info_json(sensor_datas *ConfigSensorDatas, task_info *TaskInfo) error {
+
+// 	return nil
+// }
+
+// // 创建上传文件列表
+// func Create_upload_file_list_json(work_dir string, task_json_file string) error {
+// 	cfg_file := filepath.Join(work_dir, "sensor_config.json")
+// 	datas, err := NewConfigSensorDatas(cfg_file)
+// 	if err != nil {
+// 		log.Printf("NewConfigSensorDatas Error [%s]", err)
+// 		return err
+// 	}
+
+// 	record_dir := filepath.Join(work_dir, datas.SensorData.HomeDir)
+// 	image_dir := filepath.Join(work_dir, datas.ImageData.HomeDir)
+
+// 	log.Println("record_dir", record_dir)
+// 	log.Println("image_dir", image_dir)
+
+// 	// NewTaskItem(key string, filename string, subfiles []string, zip bool) *TaskIte
+// 	items := []*TaskItem{}
+
+// 	trip_date := ""
+// 	trip_uuid := ""
+
+// 	name_to_alias := make(map[string]string)
+// 	for sensor_name := range datas.SensorData.Sensors {
+// 		sensor_info := datas.SensorData.Sensors[sensor_name]
+
+// 		name_to_alias[sensor_info.Path] = sensor_name
+// 	}
+
+// 	log.Println(name_to_alias)
+
+// 	for index, record_file := range get_all_files(record_dir, false) {
+// 		log.Println("record_file", index, record_file)
+
+// 		file_name := filepath.Base(record_file)
+// 		alias_name := ""
+// 		if _, ok := name_to_alias[file_name]; ok {
+// 			alias_name = name_to_alias[file_name]
+// 		}
+// 		file_key := fmt.Sprintf("/%s/%s/%s/%s", trip_date, trip_uuid, "", record_file)
+// 		sub_files := []string{record_file}
+// 		item := NewTaskItem(file_key, alias_name, sub_files, false, 0)
+// 		items = append(items, item)
+// 	}
+
+// 	for sensor_name := range datas.ImageData.Sensors {
+// 		sensor_info := datas.ImageData.Sensors[sensor_name]
+// 		log.Println("sensor", sensor_info.Compress, sensor_info.Compress_interval)
+
+// 		sensor_sub_dir := filepath.Join(image_dir, sensor_info.Path)
+// 		sensor_sub_files := get_all_files(sensor_sub_dir, true)
+
+// 		group_files := Group_files_by_filename(sensor_sub_files, sensor_info.Compress_interval)
+// 		for group_key := range group_files {
+// 			sub_files := group_files[group_key]
+// 			file_name := fmt.Sprintf("%d.zip", group_key)
+// 			alias_name := ""
+// 			file_key := fmt.Sprintf("/%s/%s/%s/%s", trip_date, trip_uuid, "", file_name)
+// 			item := NewTaskItem(file_key, alias_name, sub_files, sensor_info.Compress, sensor_info.Compress_interval)
+// 			items = append(items, item)
+// 		}
+// 	}
+
+// 	json_data, err := json.Marshal(items)
+// 	if err != nil {
+// 		fmt.Printf("json.Marshal Error [%s]", err)
+// 		return err
+// 	}
+
+// 	if err := ioutil.WriteFile(task_json_file, json_data, 0664); err != nil {
+// 		fmt.Printf("json.Marshal Error [%s]", err)
+// 		return err
+// 	}
+
+// 	return nil
+// }

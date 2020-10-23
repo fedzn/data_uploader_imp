@@ -1,0 +1,25 @@
+{
+	"CEPH": {
+		"End_point": "http://10.60.34.2:8060",
+		"Access_key": "4RN7NCA5W4CR24Z6IZGF",
+		"Secret_key": "Z62grWtTpg4sFObd5R6BJMW8iVXDOkqTJ0QOF3by",
+		"Bucket_name": "r1-iat-ntd-ob01"
+	},
+	"DataManager": {
+		"Url1": "http://172.22.52.25:8094/processing/api/uploadNotice",
+		"Url2": "http://172.22.52.17:8095/fusion/data/uploadnoticeV2",
+		"Url":"http://10.60.150.223:8095/fusion/data/uploadnoticeV2"
+	},
+	"InfluxDB": {
+		"Host": "Host",
+		"Port": 8086,
+		"User": "",
+		"Password": "",
+		"Database": "flvp_data"
+	},
+	"Kafka": {
+		"Host": "192.168.145.130",
+		"Port": 9892,
+		"Topic": "topic_calculate_test"
+	}
+}

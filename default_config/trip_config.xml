@@ -1,0 +1,25 @@
+<trip>
+    <main_trip start_timestamp="1588719514000" end_timestamp="1588725030000" name="Trip1" trip_date="20201014" vehicle="" city="" description="" memo="">
+    </main_trip>
+
+    <sub_trips>
+        <sub_trip name="NoRTK_G6_L_S-N_Highway" start_timestamp="1591932539910" end_timestamp="1591933613513" scene="010011" description=""/>
+        <sub_trip name="NoRTK_G6_S-N-S_Tunnels" start_timestamp="1591933614501" end_timestamp="1591934035230" scene="000000" description=""/>
+        <sub_trip name="G6_S-N_Tunnel" start_timestamp="1591933796100" end_timestamp="1591933903481" scene="000000" description=""/>
+    </sub_trips>
+
+    <sensor_datas home_dir= "record">
+        <sensor_data name="G10" path="gnss.bin" protocol="GNSS" />
+        <sensor_data name="GWM" path="vehicle.bin" protocol="Vehicle" />
+        <sensor_data name="CPT" path="rtk.txt" protocol="CSV" delimiter="," has_header="False" header="timestamp,x,y,z,h,p,r,v"/>
+        <sensor_data name="IMU" path="imu.bin" protocol="IMU" />
+        <sensor_data name="LM" path="mapfusion.bin" protocol="Location" />
+        <sensor_data name="DR" path="fsekf.bin" protocol="Location" />
+        <sensor_data name="LaneList" path="objectdetector.bin" protocol="LaneList" />
+    </sensor_datas>
+    <!-- <image_datas home_dir= "rawdata-6">
+        <sensor_data name="IMAGE" path="image" compress="True" convertWebp="True" compress_interval="10"/>
+        <sensor_data name="IMAGELOG" path="json_log" compress="True" convertWebp="False" compress_interval="1000"/>
+    </image_datas> -->
+</trip>
+

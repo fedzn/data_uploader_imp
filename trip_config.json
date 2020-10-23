@@ -1,0 +1,82 @@
+{
+  "main_trip": {
+    "mileage": 0,
+    "start_timestamp": 1588719514000,
+    "end_timestamp": 1588725030000
+  },
+  "sub_trips": [
+    {
+      "name": "NoRTK_G6_L_S-N_Highway",
+      "start_timestamp": 1591932539910,
+      "end_timestamp": 1591933613513,
+      "scene": "010011",
+      "description": ""
+    },
+    {
+      "name": "NoRTK_G6_S-N-S_Tunnels",
+      "start_timestamp": 1591933614501,
+      "end_timestamp": 1591934035230,
+      "scene": "000000",
+      "description": ""
+    },
+    {
+      "name": "G6_S-N_Tunnel",
+      "start_timestamp": 1591933796100,
+      "end_timestamp": 1591933903481,
+      "scene": "000000",
+      "description": ""
+    }
+  ],
+  "SensorData": {
+    "HomeDir": "record",
+    "Sensors": {
+      "G10": {
+        "path": "gnss.bin",
+        "protocol": "GNSS"
+      },
+      "GWM": {
+        "path": "vehicle.bin",
+        "protocol": "Vehicle"
+      },
+      "CPT": {
+        "path": "rtk.txt",
+        "protocol": "CSV",
+        "delimiter": ",",
+        "header": "timestamp,x,y,z,h,p,r,v"
+      },
+      "IMU": {
+        "path": "imu.bin",
+        "protocol": "IMU"
+      },
+      "LM": {
+        "path": "mapfusion.bin",
+        "protocol": "Location"
+      },
+      "DR": {
+        "path": "fsekf.bin",
+        "protocol": "Location"
+      },
+      "LaneList": {
+        "path": "objectdetector.bin",
+        "protocol": "LaneList"
+      }
+    }
+  },
+  "ImageData": {
+    "HomeDir": "rawdata-6",
+    "Sensors": {
+      "IMAGE": {
+        "compress": true,
+        "convertWebp": true,
+        "compress_interval": 10,
+        "path": "image"
+      },
+      "IMAGELOG": {
+        "compress": true,
+        "convertWebp": false,
+        "compress_interval": 1000,
+        "path": "json_log"
+      }
+    }
+  }
+}

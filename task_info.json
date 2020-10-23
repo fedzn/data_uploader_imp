@@ -1,0 +1,24 @@
+{
+  "tripName": "test_data",
+  "tripDate": "20201014",
+  "vehicle": "1",
+  "city": "110000",
+  "algoVersion": "GAIA_v1.4d20200731",
+  "deviceCode": 403,
+  "platform": "3work",
+  "admsInfo": {
+    "id": "",
+    "coordinateSystem": "",
+    "enableBias": false,
+    "bias": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "llh": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  }
+}
